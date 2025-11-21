@@ -58,71 +58,71 @@ Algunas adicionales en la configuración AWS y Terraform
 
 # 1. Arquitectura y Estructura ✅
 
- Clean Architecture implementada (Domain, Application, Infrastructure)
- Hexagonal Architecture (Ports & Adapters)
- Separación clara de capas con dependencias correctas
- Domain-Driven Design (DDD) aplicado
+- Clean Architecture implementada (Domain, Application, Infrastructure)
+- Hexagonal Architecture (Ports & Adapters)
+- Separación clara de capas con dependencias correctas
+- Domain-Driven Design (DDD) aplicado
 
 # 2. Capa de Dominio (Domain Layer) ✅
  Value Objects:
- FranchiseId, BranchId, ProductId
- Name (con validaciones 3-100 caracteres)
- Stock (no negativo, operaciones inmutables)
+- FranchiseId, BranchId, ProductId
+- Name (con validaciones 3-100 caracteres)
+- Stock (no negativo, operaciones inmutables)
 
  ### Entidades:
- Franchise
- Branch
- Product
+- Franchise
+- Branch
+- Product
 
 ### Excepciones de Dominio:
  DomainException (base)
- InvalidNameException
- InvalidStockException
- FranchiseNotFoundException
- BranchNotFoundException
- ProductNotFoundException
+- InvalidNameException
+- InvalidStockException
+- FranchiseNotFoundException
+- BranchNotFoundException
+- ProductNotFoundException
 
  ###  Ports (In):
- 9 casos de uso (3 Franchise, 3 Branch, 5 Product)
- Commands con validaciones integradas
+- 9 casos de uso (3 Franchise, 3 Branch, 5 Product)
+- Commands con validaciones integradas
 
  ###  Ports (Out):
- 3 interfaces de persistencia
+- 3 interfaces de persistencia
 
  # 3. Capa de Aplicación (Application Layer)  ✅
 
 ### Services:
- FranchiseService (3 casos de uso)
- BranchService (3 casos de uso)
- ProductService (5 casos de uso)
+- FranchiseService (3 casos de uso)
+- BranchService (3 casos de uso)
+- ProductService (5 casos de uso)
 
  # 4. Programación Reactiva (Mono/Flux) ✅
- Validaciones de negocio
+- Validaciones de negocio
 
  # 5. Capa de Infraestructura (Infrastructure Layer) ✅ 
 
 ### MongoDB Entities:
- FranchiseEntity, BranchEntity, ProductEntity
+- FranchiseEntity, BranchEntity, ProductEntity
 
 
 ### Repositorios Reactivos:
- FranchiseReactiveRepository
- BranchReactiveRepository
- ProductReactiveRepository
+- FranchiseReactiveRepository
+- BranchReactiveRepository
+- ProductReactiveRepository
 
 
 ### Mappers:
- FranchiseMapper, BranchMapper, ProductMapper
+- FranchiseMapper, BranchMapper, ProductMapper
 
 
 ### Adapters (Out):
-FranchisePersistenceAdapter (3 implementaciones)
+- FranchisePersistenceAdapter (3 implementaciones)
 
 
 ### Controllers REST:
- FranchiseController (3 endpoints)
- BranchController (3 endpoints)
- ProductController (5 endpoints)
+- FranchiseController (3 endpoints)
+- BranchController (3 endpoints)
+- ProductController (5 endpoints)
 
 
  DTOs:
@@ -131,47 +131,48 @@ FranchisePersistenceAdapter (3 implementaciones)
 
 
 ### Exception Handling:
- GlobalExceptionHandler
+- GlobalExceptionHandler
 
 
 ### Configuración:
- BeanConfiguration
- MongoConfig
- WebFluxConfig
+- BeanConfiguration
+- MongoConfig
+- WebFluxConfig
 
 # 5. Endpoints Implementados ✅ 
 ### Obligatorios (6/6):
- POST /api/franchises - Crear franquicia
- POST /api/branches - Crear sucursal
- POST /api/products - Crear producto
- PUT /api/products/{id}/stock - Modificar stock
- GET /api/products/top-stock/franchise/{id} - Top stock por sucursal ⭐
- DELETE /api/products/{id} - Eliminar producto
+- POST /api/franchises - Crear franquicia
+- POST /api/branches - Crear sucursal
+- POST /api/products - Crear producto
+- PUT /api/products/{id}/stock - Modificar stock
+- GET /api/products/top-stock/franchise/{id} - Top stock por sucursal ⭐
+- DELETE /api/products/{id} - Eliminar producto
 
 ### Puntos Extra (3/3):
 
- PUT /api/franchises/{id}/name - Actualizar nombre franquicia
- PUT /api/branches/{id}/name - Actualizar nombre sucursal
- PUT /api/products/{id}/name - Actualizar nombre producto
+- PUT /api/franchises/{id}/name - Actualizar nombre franquicia
+- PUT /api/branches/{id}/name - Actualizar nombre sucursal
+- PUT /api/products/{id}/name - Actualizar nombre producto
 
 ### Consultas adicionales:
 
- GET /api/franchises/{id} - Obtener franquicia
- GET /api/branches/{id} - Obtener sucursal
+- GET /api/franchises/{id} - Obtener franquicia
+- GET /api/branches/{id} - Obtener sucursal
 
 # 6. Tecnologías y Patrones ✅
- Spring Boot 
- Spring WebFlux (Programación Reactiva)
- Spring Data MongoDB Reactive
- Java 21
- Maven
- Lombok
- Jakarta Validation
- MongoDB (persistencia)
+- Spring Boot 
+- Spring WebFlux (Programación Reactiva)
+- Spring Data MongoDB Reactive
+- Java 21
+- Maven
+- Lombok
+- Jakarta Validation
+- MongoDB (persistencia)
 
 # 7. Validaciones ✅
- Validaciones en DTOs (@Valid)
- Validaciones en Commands
- Validaciones en Value Objects
- Manejo global de excepciones
+- Validaciones en DTOs (@Valid)
+- Validaciones en Commands
+- Validaciones en Value Objects
+- Manejo global de excepciones
+
 
