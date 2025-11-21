@@ -8,8 +8,10 @@ import com.accenture.project_accenture_backend.domain.valueobjects.Name;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 @SpringBootApplication
+@EnableReactiveMongoRepositories(basePackages = "com.accenture.project_accenture_backend.infrastruture.adapter.out.persistence.mongodb.repository")
 public class ProjectAccentureBackendApplication {
 
 	public static void main(String[] args) {
@@ -39,6 +41,8 @@ public class ProjectAccentureBackendApplication {
 		System.out.println(branch.getName());
 		System.out.println(product.getName());
 		System.out.println(product.getStock());
+
+
 	}
 }
 

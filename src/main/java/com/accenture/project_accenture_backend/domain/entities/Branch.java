@@ -35,7 +35,6 @@ public class Branch {
                 now,
                 now
         );
-
     }
 
     public static Branch reconstitute(BranchId id,FranchiseId franchiseId, Name name, Instant createdAt, Instant updatedAt) {

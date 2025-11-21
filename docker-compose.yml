@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # ============================================
+  # Spring Boot Application
+  # ============================================
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: franchise-app
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      # MongoDB Atlas URI (desde variable de entorno)
+      MONGODB_URI: mongodb+srv://juanmadrinan:6ZTBz9vT1KcPMsKE@cluster0.9p8pcf2.mongodb.net/
+      SERVER_PORT: 8080
+      LOGGING_LEVEL_ROOT: INFO
+      LOGGING_LEVEL_COM_ACCENTURE: DEBUG
+    ports:
+      - "8080:8080"
+    networks:
+      - franchise-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+# ============================================
+# Networks
+# ============================================
+networks:
+  franchise-network:
+    driver: bridge
+    name: franchise-network

@@ -13,7 +13,7 @@ public class ProductId {
 
     public static ProductId of(String value) {
         if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException("ProductId no puede ser nulo o vacío");
+            throw new IllegalArgumentException("ProductId null or blank");
         }
         return new ProductId(value.trim());
     }

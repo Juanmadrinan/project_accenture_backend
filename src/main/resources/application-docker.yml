@@ -13,7 +13,14 @@ server:
 
 logging:
   level:
-    root: INFO
-    com.franchise: DEBUG
-    org.springframework.data.mongodb: DEBUG
-    org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
+    root: ${LOGGING_LEVEL_ROOT:INFO}
+    com.accenture: ${LOGGING_LEVEL_COM_ACCENTURE:DEBUG}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
