@@ -56,14 +56,14 @@ Algunas adicionales en la configuración AWS y Terraform
 
 #### Finalmente deje un Script de Bash que desplego mi Aplicación en AWS, ejecutando el terraform y docker, sin embargo para las pruebas del funcionamiento recomiendo hacer el despliegue local para hacer las pruebas porque hay problemas por demora de respuesta en el servidor, por cuestiones de tiempo teniendo en cuenta que hoy a las 12 de la tarde termina el tiempo de entrega, especifico lo terminado:
 
-# 1. Arquitectura y Estructura
+# 1. Arquitectura y Estructura ✅
 
  Clean Architecture implementada (Domain, Application, Infrastructure)
  Hexagonal Architecture (Ports & Adapters)
  Separación clara de capas con dependencias correctas
  Domain-Driven Design (DDD) aplicado
 
-# 2. Capa de Dominio (Domain Layer)
+# 2. Capa de Dominio (Domain Layer) ✅
  Value Objects:
  FranchiseId, BranchId, ProductId
  Name (con validaciones 3-100 caracteres)
@@ -89,17 +89,17 @@ Algunas adicionales en la configuración AWS y Terraform
  ###  Ports (Out):
  3 interfaces de persistencia
 
- # 3. Capa de Aplicación (Application Layer) 
+ # 3. Capa de Aplicación (Application Layer)  ✅
 
 ### Services:
  FranchiseService (3 casos de uso)
  BranchService (3 casos de uso)
  ProductService (5 casos de uso)
 
- # 4. Programación Reactiva (Mono/Flux)
+ # 4. Programación Reactiva (Mono/Flux) ✅
  Validaciones de negocio
 
- # 5. Capa de Infraestructura (Infrastructure Layer) 
+ # 5. Capa de Infraestructura (Infrastructure Layer) ✅ 
 
 ### MongoDB Entities:
  FranchiseEntity, BranchEntity, ProductEntity
@@ -139,7 +139,7 @@ FranchisePersistenceAdapter (3 implementaciones)
  MongoConfig
  WebFluxConfig
 
-# 5. Endpoints Implementados 
+# 5. Endpoints Implementados ✅ 
 ### Obligatorios (6/6):
  POST /api/franchises - Crear franquicia
  POST /api/branches - Crear sucursal
@@ -174,3 +174,4 @@ FranchisePersistenceAdapter (3 implementaciones)
  Validaciones en Commands
  Validaciones en Value Objects
  Manejo global de excepciones
+
