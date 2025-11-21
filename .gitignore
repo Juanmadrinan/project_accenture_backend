@@ -33,4 +33,24 @@ build/
 .vscode/
 infra/.terraform/providers/registry.terraform.io/hashicorp/aws/5.100.0/windows_amd64/terraform-provider-aws_v5.100.0_x5.exe
 infra/.terraform/providers/registry.terraform.io/hashicorp/aws/5.100.0/windows_amd64/LICENSE.txt
-/infra
+
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# AWS Credentials
+.aws/
+*.pem
+*.key
