@@ -54,7 +54,7 @@ public class FranchiseController {
     @PutMapping("/{id}/name")
     public Mono<FranchiseResponse> updateFranchiseName(
             @PathVariable String id,
-            @RequestBody @Valid UpdateFranchiseNameRequest request  // ✅ CORRECTO: Request DTO
+            @RequestBody @Valid UpdateFranchiseNameRequest request
     ) {
         // Crear Command desde el DTO
         UpdateFranchiseNameUseCase.UpdateFranchiseNameCommand command = new UpdateFranchiseNameUseCase.UpdateFranchiseNameCommand(

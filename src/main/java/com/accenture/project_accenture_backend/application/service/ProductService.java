@@ -45,17 +45,15 @@ public class ProductService implements
         Name name = Name.of(command.name());
         Stock initialStock = Stock.of(command.initialStock());
 
-        // Verificar que la sucursal existe
         return branchPersistencePort.existsById(branchId)
                 .flatMap(exists -> {
-                    // ✅ CORRECTO: Verificar si NO existe
-                    if (!exists) {  // ← Debe ser !exists
+                    if (!exists) {
+                        System.out.println("Paso de prueba");
                         return Mono.error(
                                 new BranchNotFoundException(command.branchId())
                         );
                     }
 
-                    // Crear y persistir producto
                     Product product = Product.create(branchId, name, initialStock);
                     return productPersistencePort.save(product);
                 });

@@ -1,12 +1,8 @@
 package com.accenture.project_accenture_backend.infrastruture.adapter.in.rest.dto.request;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public record CreateProductRequest(
-
         @NotBlank(message = "The branch ID cannot be empty.")
         String branchId,
 

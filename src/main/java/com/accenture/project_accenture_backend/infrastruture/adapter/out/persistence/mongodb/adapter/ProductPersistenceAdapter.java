@@ -5,13 +5,14 @@ import com.accenture.project_accenture_backend.domain.port.out.ProductPersistenc
 import com.accenture.project_accenture_backend.domain.valueobjects.id.BranchId;
 import com.accenture.project_accenture_backend.domain.valueobjects.id.FranchiseId;
 import com.accenture.project_accenture_backend.domain.valueobjects.id.ProductId;
-import com.accenture.project_accenture_backend.infrastruture.adapter.out.persistence.mongodb.entity.ProductEntity;
 import com.accenture.project_accenture_backend.infrastruture.adapter.out.persistence.mongodb.mapper.ProductMapper;
 import com.accenture.project_accenture_backend.infrastruture.adapter.out.persistence.mongodb.repository.BranchReactiveRepository;
 import com.accenture.project_accenture_backend.infrastruture.adapter.out.persistence.mongodb.repository.ProductReactiveRepository;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Objects;
 
 @Component
 public class ProductPersistenceAdapter implements ProductPersistencePort {
@@ -20,9 +21,10 @@ public class ProductPersistenceAdapter implements ProductPersistencePort {
     private final BranchReactiveRepository branchReactiveRepository;
     private final ProductReactiveRepository productReactiveRepository;
 
-    public ProductPersistenceAdapter(BranchReactiveRepository branchReactiveRepository, ProductReactiveRepository productReactiveRepository) {
+    public ProductPersistenceAdapter(BranchReactiveRepository branchReactiveRepository, ProductReactiveRepository productReactiveRepository, ProductMapper productMapper) {
         this.branchReactiveRepository = branchReactiveRepository;
         this.productReactiveRepository = productReactiveRepository;
+        this.productMapper = productMapper;
     }
 
     @Override

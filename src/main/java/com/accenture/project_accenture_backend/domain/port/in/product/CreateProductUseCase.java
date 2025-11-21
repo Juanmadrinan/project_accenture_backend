@@ -7,7 +7,7 @@ public interface CreateProductUseCase {
 
     Mono<Product> execute(CreateProductCommand command);
 
-    record CreateProductCommand(String branchId, String name, int initialStock) {
+    record CreateProductCommand(String branchId, String name, Integer initialStock) {
         public CreateProductCommand {
             if (branchId == null || branchId.isBlank()) {
                 throw new IllegalArgumentException("BranchId is null or blank");
